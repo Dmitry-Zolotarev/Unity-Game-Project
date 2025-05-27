@@ -17,14 +17,14 @@ public  class NinjaRetreat : Retreating
         {
             Vector3 direction = (transform.position - AI.player.position).normalized;
             AI.rigidBody.MovePosition(transform.position + direction * AI.moveSpeed * Time.fixedDeltaTime);
-            AI.animator.Play("Walk Backwards");
+            if (!AI.enemyHP.isHitted) AI.animator.Play("Walk Backwards");
         }
         else StartCoroutine(Wait());
     }
 
     private IEnumerator Wait()
     {
-        AI.animator.Play("Idle");
+        if (!AI.enemyHP.isHitted) AI.animator.Play("Idle");
         yield return new WaitForSeconds(waitTime);
         AI.isRetreating = false;
     }

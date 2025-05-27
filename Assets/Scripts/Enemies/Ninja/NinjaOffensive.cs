@@ -12,6 +12,6 @@ public class NinjaOffensive : Offensive
         // Подход к игроку
         Vector3 moveDir = (AI.player.position - transform.position).normalized;
         AI.rigidBody.MovePosition(transform.position + moveDir * AI.moveSpeed * Time.fixedDeltaTime);
-        AI.animator.Play("Run");
+        if (!AI.enemyHP.isHitted) AI.animator.Play("Run");
     }
 }

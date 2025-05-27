@@ -17,15 +17,15 @@ public class EnemyAI : MonoBehaviour
     public HP PlayerHP;
     public Collider attackTrigger;
     public Animator animator;
+    public HP enemyHP;
 
-    
-    
+
 
     private Attack attack;
     private Retreating retreating;
     private Offensive offensive;
     private Patrol patrol;
-    private HP enemyHP;
+    
     private void Start()
     {
         attack = GetComponent<Attack>();
