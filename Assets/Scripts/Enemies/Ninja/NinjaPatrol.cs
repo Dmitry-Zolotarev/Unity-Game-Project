@@ -8,6 +8,6 @@ public class NinjaPatrol : Patrol
     }
     public override void DoPatrol()
     {
-        if (!AI.enemyHP.isHitted) AI.animator.Play("Idle");
+        AI.animator.Play("Idle");
     }
 }

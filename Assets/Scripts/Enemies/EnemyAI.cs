@@ -8,16 +8,19 @@ public class EnemyAI : MonoBehaviour
     public float visionRange = 10f;
     
     
-    public bool isRetreating = false;
-    public bool isAttacking = false;
-    public float distance;
-    
-    public Rigidbody rigidBody;
-    public Transform player;
+    [HideInInspector]public bool isRetreating = false;
+    [HideInInspector] public bool isAttacking = false;
+    [HideInInspector] public float distance;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public HP enemyHP;
     public HP PlayerHP;
+
+    [HideInInspector] public Rigidbody rigidBody;
+    public Transform player;
+    
     public Collider attackTrigger;
-    public Animator animator;
-    public HP enemyHP;
+
+    
 
 
 
@@ -35,7 +38,6 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         enemyHP = GetComponent<HP>();
-        moveSpeed /= 100f;
         if (attackTrigger == null)
         {
             Debug.LogError("Attack Trigger Collider not assigned!");

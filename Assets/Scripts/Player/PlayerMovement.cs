@@ -34,10 +34,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 body.MovePosition(transform.position + direction.normalized * moveSpeed * Time.fixedDeltaTime);
                 transform.rotation = Quaternion.Euler(0, moveX > 0 ? 90 : -90, 0);
-                if (!attack.isAttacking && !playerHP.isHitted) animator.Play("Run");
+                if (!attack.isAttacking) animator.Play("Run");
             }
             else if (Keyboard.current.spaceKey.wasPressedThisFrame) Jump();
-            else if (!attack.isAttacking && !playerHP.isHitted) animator.Play("Idle");
+            else if (!attack.isAttacking) animator.Play("Idle");
 
             if (Keyboard.current.spaceKey.isPressed) Jump();
         }

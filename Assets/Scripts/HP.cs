@@ -8,13 +8,15 @@ public abstract class HP : MonoBehaviour
 {
     public PuppetMaster ragDoll;
     protected Animator animator;
-    public int Value = 100;
-    public bool isHitted = false;
+    [HideInInspector]public int Value;
+    public int MaxHP;
+
     private void Start()
     {
+        Value = MaxHP;
         animator = GetComponent<Animator>();
     }
-    public abstract IEnumerator Damage(int damage);
+    public abstract void Damage(int damage);
     public abstract void Heal(int healEffect);
     public abstract IEnumerator Die();
 }

@@ -20,9 +20,9 @@ public class NinjaAttack : Attack
 
         // ¬рем€ должно соответствовать длине анимации "Boxing"
         AI.isAttacking = true;
-        if(!AI.enemyHP.isHitted) AI.animator.Play("Boxing");
+        AI.animator.Play("Boxing");
         yield return new WaitForSeconds(attackCooldown / 2f);
-        StartCoroutine(AI.PlayerHP.Damage(damage));
+        AI.PlayerHP.Damage(damage);
         yield return new WaitForSeconds(attackCooldown / 2f);
         AI.isAttacking = false;
         AI.isRetreating = true;

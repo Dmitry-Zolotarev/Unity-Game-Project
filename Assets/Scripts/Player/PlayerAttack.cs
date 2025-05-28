@@ -38,7 +38,7 @@ public class PlayerAttack : Attack
                 if (angle <= 45f)
                 {
                     EnemyHP enemyHP = collider.GetComponent<EnemyHP>();
-                    if (enemyHP != null) StartCoroutine(enemyHP.Damage(damage));
+                    if (enemyHP != null) enemyHP.Damage(damage);
                 }
             }
 

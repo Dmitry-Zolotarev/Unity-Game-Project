@@ -4,22 +4,12 @@ using UnityEngine;
 
 public class EnemyHP : HP
 {
-    public int MaxHP;
-    
-    private void Start()
-    {
-        Value = MaxHP;
-    }
-    public override IEnumerator Damage(int damage)
+    public override void Damage(int damage)
     {
         Value -= damage;
         if (Value < 0) Value = 0;
         if (Value == 0) StartCoroutine(Die());
         Debug.Log("Enemy HP: " + Value);
-        animator.Play("HumanF@CombatDamage01");
-        isHitted = true;
-        yield return new WaitForSeconds(1f);
-        isHitted = false;
     }
 
     public override IEnumerator Die()

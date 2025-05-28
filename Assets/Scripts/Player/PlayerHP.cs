@@ -12,21 +12,17 @@ public class PlayerHP : HP
     {
         HPLabel.text = "HP: " + Value;
     }
-    public override IEnumerator Damage(int damage)
+    public override void Damage(int damage)
     {
         Value -= damage;
         if (Value < 0) Value = 0;
         HPLabel.text = "HP: " + Value;
         if (Value == 0) StartCoroutine(Die());
-        animator.Play("HumanF@CombatDamage01");
-        isHitted = true;
-        yield return new WaitForSeconds(1f);
-        isHitted = false;
     }
     public override void Heal(int heal)
     {
         Value += heal;
-        if (Value > 100) Value = 100;
+        if (Value > MaxHP) Value = MaxHP;
         HPLabel.text = "HP: " + Value;
     }
     public override IEnumerator Die()
